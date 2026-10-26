@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     environment {
-        TOMCAT_URL        = 'http://172.31.0.202:8080'       // Tomcat private IP (deploys)
-        TOMCAT_PUBLIC_URL = 'http://13.36.207.244:8080' // Tomcat Elastic IP (browsing)
-        CONTEXT_PATH      = '/devops-trends'
+        TOMCAT_URL        = 'http://172.31.12.169:8080'       // Tomcat private IP (deploys)
+        TOMCAT_PUBLIC_URL = 'http://835.181.4.107:8080' // Tomcat Elastic IP (browsing)
+        CONTEXT_PATH      = '/zab-trends'
     }
 
     stages {
 
         stage('Checkout') {
-            steps {
+            steps 
                 echo 'Pulling source code from GitHub...'
                 git branch: 'main',
                     credentialsId: 'github-pat',
-                    url: 'https://github.com/Naomie-tech/devops-trends.git'
+                    url: 'https://github.com/Naomie-tech/zab-trends.git'
             }
         }
 
