@@ -1,16 +1,17 @@
+
 pipeline {
     agent any
 
     environment {
         TOMCAT_URL        = 'http://172.31.12.169:8080'       // Tomcat private IP (deploys)
-        TOMCAT_PUBLIC_URL = 'http://835.181.4.107:8080' // Tomcat Elastic IP (browsing)
+        TOMCAT_PUBLIC_URL = 'http://35.181.4.107:8080' // Tomcat Elastic IP (browsing)
         CONTEXT_PATH      = '/zab-trends'
     }
 
     stages {
 
-        stage('Checkout') {
-            steps 
+            stage('Checkout') {
+            steps {
                 echo 'Pulling source code from GitHub...'
                 git branch: 'main',
                     credentialsId: 'github-pat',
@@ -69,4 +70,4 @@ pipeline {
             deleteDir()
         }
     }
-
+}
